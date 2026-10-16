@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>منوی هایپر نان و کافه بیکری زعفرانیه</title>
+<meta name="theme-color" content="#150a2e">
+<script>try{if(localStorage.getItem('theme')==='light')document.documentElement.dataset.theme='light'}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+<style>
+:root{
+  --bg:#150a2e; --card:#21123f; --card2:#2d1a57; --line:rgba(255,255,255,.09);
+  --saf:#ffbe2e; --lav:#b79cff; --text:#f3eeff; --mut:#a99bd0;
+  /* عکس هدر: مثلا url('cafe.jpg') */
+  --hero-img:none;
+  --hero-top:rgba(21,10,46,.3); --glow1:#6a3bd1; --bar:rgba(21,10,46,.86); --glass:rgba(255,255,255,.1);
+  --g1:rgba(106,59,209,.22); --g2:rgba(255,190,46,.08); --pat:.07; color-scheme:dark;
+}
+/* ===== حالت روز ===== */
+[data-theme="light"]{
+  --bg:#fff6e6; --card:#ffffff; --card2:#f3e9ff; --line:rgba(42,16,82,.1); --lav:#6a3bd1; --text:#25103f; --mut:#6d6490;
+  --hero-top:rgba(255,246,230,.2); --glow1:rgba(106,59,209,.3); --bar:rgba(255,246,230,.88); --glass:rgba(42,16,82,.06);
+  --g1:rgba(106,59,209,.1); --g2:rgba(255,190,46,.3); --pat:.12; color-scheme:light;
+}
+[data-theme="light"] .hero::before{opacity:.5}
+[data-theme="light"] .item:hover{box-shadow:0 16px 34px rgba(42,16,82,.14),0 0 0 1px rgba(255,190,46,.7)}
+html{scroll-behavior:smooth}
+body{font-family:'Vazirmatn',Tahoma,sans-serif;color:var(--text);
+  background:radial-gradient(60% 40% at 100% 35%,var(--g1),transparent),radial-gradient(50% 35% at 0 75%,var(--g2),transparent),var(--bg);background-attachment:fixed}
+/* الگوی هندسی ایرانی */
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:var(--pat);
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64' fill='none' stroke='%23ffbe2e'%3E%3Crect x='14' y='14' width='36' height='36'/%3E%3Crect x='14' y='14' width='36' height='36' transform='rotate(45 32 32)'/%3E%3Ccircle cx='32' cy='32' r='5'/%3E%3C/svg%3E")}
+main,footer{position:relative;z-index:1}
+/* ---------- Hero ---------- */
+.hero{position:relative;overflow:hidden;text-align:center;padding:3rem 0 6.5rem;
+  background:linear-gradient(180deg,var(--hero-top),var(--bg)),var(--hero-img),
+  radial-gradient(circle at 80% 0,rgba(255,190,46,.3),transparent 38%),
+  radial-gradient(circle at 12% 25%,var(--glow1),transparent 48%),var(--bg);
+  background-size:cover;background-position:center}
+.hero::before{content:"";position:absolute;inset:-20%;filter:blur(30px);animation:aur 14s ease-in-out infinite alternate;
+  background:radial-gradient(40% 40% at 20% 30%,rgba(106,59,209,.6),transparent),radial-gradient(35% 35% at 80% 20%,rgba(255,190,46,.3),transparent),radial-gradient(40% 40% at 60% 95%,rgba(255,90,140,.22),transparent)}
+@keyframes aur{to{transform:translate(4%,6%) rotate(6deg) scale(1.08)}}
+.floaty span{position:absolute;left:var(--x);top:var(--y);font-size:var(--s);opacity:.28;animation:bob var(--t) ease-in-out infinite alternate}
+@keyframes bob{to{transform:translateY(-20px) rotate(14deg)}}
+.hero .container{position:relative;z-index:1}
+.rise{opacity:0;transform:translateY(18px);animation:rise .7s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--d,0)*.12s)}
+@keyframes rise{to{opacity:1;transform:none}}
+.logo{width:112px;height:112px;margin:0 auto 1.4rem;border-radius:50%;background:var(--saf);display:grid;place-items:center;position:relative}
+.logo::before,.logo::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--saf);animation:ring 3.2s ease-out infinite}
+.logo::after{animation-delay:1.6s}
+@keyframes ring{from{transform:scale(1);opacity:.7}to{transform:scale(1.7);opacity:0}}
+.steam path{stroke:#2a1052;stroke-width:3;stroke-linecap:round;fill:none;opacity:0;animation:steam 3.2s ease-in-out infinite}
+.steam path:nth-child(2){animation-delay:.8s}.steam path:nth-child(3){animation-delay:1.6s}
+@keyframes steam{0%{opacity:0;transform:translateY(8px)}40%{opacity:.9}100%{opacity:0;transform:translateY(-10px)}}
+.name1{font-family:'Lalezar',Vazirmatn,sans-serif;font-size:clamp(1.5rem,5vw,2.4rem);line-height:1.2;color:var(--lav)}
+.name2{font-family:'Lalezar',Vazirmatn,sans-serif;font-size:clamp(3.6rem,17vw,8rem);line-height:1;margin:.1rem 0 .5rem;
+  text-shadow:0 0 40px rgba(255,190,46,.35)}
+.tagline{font-weight:300;font-size:1.05rem;color:var(--mut);margin:0 auto 1.1rem}
+.chip{display:inline-flex;gap:.4rem;align-items:center;background:var(--glass);backdrop-filter:blur(6px);
+  border:1px solid var(--line);border-radius:99px;padding:.35rem .9rem;font-size:.85rem}
+.search{position:relative;max-width:420px;margin:1.6rem auto 0}
+.search input{width:100%;border:1px solid var(--line);background:var(--glass);backdrop-filter:blur(8px);color:var(--text);
+  border-radius:99px;padding:.85rem 3rem .85rem 1.2rem;font:inherit;font-size:1rem;outline:0;transition:border-color .2s,background .2s}
+.search input::placeholder{color:var(--mut)}
+.search input:focus{border-color:var(--saf);background:rgba(255,255,255,.13)}
+.search span{position:absolute;inset-inline-end:1.1rem;top:50%;transform:translateY(-50%);pointer-events:none}
+.mode{position:absolute;z-index:3;top:calc(.9rem + env(safe-area-inset-top,0px));inset-inline-start:.9rem;width:46px;height:46px;border-radius:50%;
+  border:1px solid var(--line);background:var(--glass);backdrop-filter:blur(8px);color:var(--text);font-size:1.3rem;cursor:pointer;transition:transform .3s}
+.mode:hover{transform:rotate(25deg) scale(1.08)}
+.mode:focus-visible{outline:3px solid var(--saf);outline-offset:2px}
+/* ---------- Category bar ---------- */
+.cat-bar{position:sticky;top:0;z-index:20;margin-top:-3.2rem;background:var(--bar);backdrop-filter:blur(12px);
+  padding:.7rem 0;padding-top:calc(.7rem + env(safe-area-inset-top,0px));border-bottom:1px solid var(--line)}
+.cat-scroll{display:flex;gap:.55rem;overflow-x:auto;padding:.2rem .25rem;scrollbar-width:none}
+.cat-scroll::-webkit-scrollbar{display:none}
+.cat-btn{flex:0 0 auto;border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:99px;padding:.5rem 1.05rem;
+  font:700 1rem Vazirmatn,sans-serif;display:flex;align-items:center;gap:.45rem;transition:background .2s,color .2s,transform .2s}
+.cat-btn:hover{transform:translateY(-2px)}
+.cat-btn.active{background:var(--saf);color:#2a1052;border-color:var(--saf);box-shadow:0 8px 22px rgba(255,190,46,.3)}
+.cat-btn:focus-visible,.item:focus-visible,.x:focus-visible{outline:3px solid var(--saf);outline-offset:2px}
+/* ---------- Sections ---------- */
+.sec-head{display:flex;align-items:center;gap:.9rem;margin:2rem 0 1.1rem}
+.sec-head .big{width:60px;height:60px;border-radius:20px;background:var(--card2);display:grid;place-items:center;font-size:1.9rem;transform:rotate(-6deg)}
+.sec-head h2{font-family:'Lalezar',Vazirmatn,sans-serif;font-weight:400;margin:0;font-size:2.1rem;line-height:1.1}
+.sec-head small{display:block;color:var(--mut)}
+.sec-head .line{flex:1;height:2px;position:relative;background:repeating-linear-gradient(90deg,rgba(183,156,255,.35) 0 6px,transparent 6px 12px)}
+.sec-head .line::after{content:"◆";position:absolute;inset-inline-end:0;top:50%;transform:translateY(-50%);color:var(--saf);font-size:.8rem;background:var(--bg);padding-inline:.4rem}
+.panel{display:none}.panel.show{display:block;animation:fade .3s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+/* ---------- Items ---------- */
+.item{all:unset;box-sizing:border-box;cursor:pointer;width:100%;height:100%;display:flex;flex-direction:column;
+  background:linear-gradient(170deg,rgba(255,255,255,.08),rgba(255,255,255,.015)),var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .2s}
+.item:hover{transform:translateY(-4px);border-color:rgba(255,190,46,.5);box-shadow:0 18px 40px rgba(255,190,46,.14),0 0 0 1px rgba(255,190,46,.35)}
+.pic{position:relative;aspect-ratio:4/3;display:grid;place-items:center;font-size:3.4rem;overflow:hidden;
+  background:radial-gradient(circle at 50% 55%,rgba(255,190,46,.28),transparent 62%),var(--card2)}
+.pic .em{transition:transform .3s;display:grid}
+.pic .em svg{width:68%;max-width:170px;height:auto;filter:drop-shadow(0 6px 10px rgba(0,0,0,.25))}
+.sheet .pic .em svg{width:48%}
+.item:hover .em{transform:scale(1.18) rotate(-6deg)}
+.pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.star{position:absolute;top:.6rem;inset-inline-start:.6rem;z-index:1;background:var(--saf);color:#2a1052;font-size:.72rem;font-weight:800;border-radius:99px;padding:.15rem .6rem}
+.body{display:flex;flex-direction:column;justify-content:center;gap:.25rem;padding:.9rem 1rem 1.05rem;min-height:4.4rem}
+.body b{display:block;font-size:1.15rem;font-weight:800;line-height:1.5;color:var(--text);text-wrap:balance}
+.body span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:0;font-size:.85rem;color:var(--mut);line-height:1.8}
+.body span:empty{display:none}
+.empty{text-align:center;color:var(--mut);padding:3rem 0}
+.cnt{background:var(--card2);border-radius:99px;padding:.2rem .8rem;font-size:.82rem;color:var(--mut);white-space:nowrap}
+@media (max-width:575.98px){
+  .item{flex-direction:row;align-items:stretch;border-radius:20px}
+  .item .pic{width:104px;flex:none;aspect-ratio:1/1;font-size:2.6rem}
+  .item .pic .em svg{width:78px}
+  .item .body{flex:1;min-width:0;padding:.7rem 1rem}
+  .item .star{font-size:.6rem;padding:.1rem .45rem;top:.4rem;inset-inline-start:.4rem}
+  .sec-head h2{font-size:1.7rem;white-space:nowrap}
+  .sec-head .line{display:none}
+  .cnt{margin-inline-start:auto}
+}
+#top{position:fixed;z-index:15;inset-inline-start:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));width:48px;height:48px;border:0;border-radius:50%;
+  background:var(--saf);color:#2a1052;font-size:1.3rem;font-weight:800;cursor:pointer;box-shadow:0 8px 22px rgba(0,0,0,.35);
+  opacity:0;pointer-events:none;transform:translateY(12px);transition:opacity .25s,transform .25s}
+#top.on{opacity:1;pointer-events:auto;transform:none}
+#top:focus-visible{outline:3px solid var(--text);outline-offset:2px}
+/* ---------- Detail sheet ---------- */
+dialog{border:0;padding:0;background:transparent;color:var(--text);width:min(460px,100%);max-width:100%;margin:auto}
+dialog::backdrop{background:rgba(10,4,25,.7);backdrop-filter:blur(5px)}
+dialog[open]{animation:up .3s cubic-bezier(.2,.8,.2,1)}
+@keyframes up{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+.sheet{background:var(--card);border:1px solid var(--line);border-radius:28px;overflow:hidden;position:relative}
+.sheet .pic{aspect-ratio:16/10;font-size:5.5rem}
+.sheet .txt{padding:1.2rem 1.4rem 1.6rem}
+.sheet small{display:inline-block;margin-bottom:.4rem;background:var(--card2);color:var(--saf);border-radius:99px;padding:.15rem .8rem;font-size:.8rem;font-weight:600}
+.sheet h3{font-family:'Lalezar',Vazirmatn,sans-serif;font-weight:400;font-size:2rem;margin:0 0 .3rem}
+.sheet p{margin:0;color:var(--mut);line-height:1.9}
+.x{position:absolute;top:.7rem;inset-inline-end:.7rem;z-index:2;width:40px;height:40px;border:0;border-radius:50%;background:rgba(21,10,46,.7);color:#fff;font-size:1.1rem;cursor:pointer}
+@media (max-width:600px){dialog{margin-bottom:0}.sheet{border-radius:28px 28px 0 0;padding-bottom:env(safe-area-inset-bottom,0px)}}
+/* ---------- Footer ---------- */
+footer{--mut:#a99bd0;--text:#f3eeff;--lav:#b79cff;color:var(--text);margin-top:3.5rem;text-align:center;padding:2.2rem 1rem;padding-bottom:calc(2rem + env(safe-area-inset-bottom,0px));
+  background:linear-gradient(180deg,#120728,#0a0416);overflow:hidden}
+footer::before{content:"";display:block;height:2px;margin:-2.2rem -1rem 2rem;background:linear-gradient(90deg,transparent,var(--saf),transparent)}
+footer .t{font-family:'Lalezar',Vazirmatn,sans-serif;font-size:1.7rem;margin-bottom:1rem}
+.contact{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem}
+.contact a{display:inline-flex;align-items:center;gap:.5rem;color:#fff;text-decoration:none;background:rgba(255,255,255,.08);border:1px solid var(--line);border-radius:99px;padding:.5rem 1rem;font-size:.9rem;transition:background .2s,color .2s}
+.contact a:hover{background:var(--saf);color:#2a1052}
+.contact a:focus-visible{outline:3px solid var(--saf);outline-offset:2px}
+.credit{margin-top:1.4rem;font-size:.8rem;color:var(--mut)}
+.credit a{color:var(--saf);text-decoration:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rise{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <button class="mode" id="mode" type="button"></button>
+  <div class="floaty" aria-hidden="true">
+    <span style="--x:7%;--y:14%;--s:2.2rem;--t:6s">🥐</span><span style="--x:86%;--y:10%;--s:2rem;--t:7s">☕</span>
+    <span style="--x:14%;--y:62%;--s:1.8rem;--t:8s">🍩</span><span style="--x:80%;--y:55%;--s:2.4rem;--t:6.5s">🍰</span>
+    <span style="--x:46%;--y:4%;--s:1.5rem;--t:9s">🫘</span><span style="--x:92%;--y:78%;--s:1.7rem;--t:7.5s">🥖</span>
+  </div>
+  <div class="container">
+    <div class="logo rise" style="--d:0" role="img" aria-label="لوگوی هایپر نان زعفرانیه">
+      <svg width="68" height="68" viewBox="0 0 64 64">
+        <g class="steam"><path d="M24 20c-3-4 3-6 0-11"/><path d="M32 20c-3-4 3-6 0-12"/><path d="M40 20c-3-4 3-6 0-11"/></g>
+        <path d="M14 28h34v10a14 14 0 0 1-14 14h-6a14 14 0 0 1-14-14z" fill="#2a1052"/>
+        <path d="M48 31h4a6 6 0 0 1 0 12h-5" stroke="#2a1052" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <ellipse cx="31" cy="28" rx="17" ry="3" fill="#4a2a85"/>
+        <path d="M10 57h42" stroke="#2a1052" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <h1 class="m-0">
+      <div class="name1 rise" style="--d:1">هایپر نان و کافه بیکری</div>
+      <div class="name2 rise" style="--d:2">زعفرانیه</div>
+    </h1>
+    <p class="tagline rise" style="--d:3">نان داغ، قهوه‌ی تازه و شیرینی‌های خانگی</p>
+    <span class="chip rise" style="--d:4">🕗 هر روز ۸ صبح تا ۱۱ شب</span>
+    <div class="search rise" style="--d:5">
+      <input id="q" type="search" placeholder="دنبال چی می‌گردی؟ مثلا لاته، کیک..." aria-label="جستجو در منو" autocomplete="off">
+      <span aria-hidden="true">🔍</span>
+    </div>
+  </div>
+</header>
+
+<nav class="cat-bar" aria-label="دسته‌بندی منو">
+  <div class="container"><div class="cat-scroll" id="cats"></div></div>
+</nav>
+
+<main class="container pb-4" id="menu"></main>
+
+<footer>
+  <div class="t">هایپر نان و کافه بیکری زعفرانیه ☕</div>
+  <div class="contact">
+    <a href="https://instagram.com/Zafaraniyeh_cafe" target="_blank" rel="noopener"><span>📸</span><bdi dir="ltr">@Zafaraniyeh_cafe</bdi></a>
+    <a href="tel:09337063380"><span>📞</span><bdi dir="ltr">0933 706 3380</bdi></a>
+    <a href="https://maps.google.com/?q=هتل آبشار آب سفید الیگودرز" target="_blank" rel="noopener"><span>📍</span>هتل آبشار آب سفید الیگودرز</a>
+  </div>
+  <div class="credit">ساخته شده توسط <a href="tel:09059885527">مستر سورس</a> · <bdi dir="ltr">0905 988 5527</bdi></div>
+</footer>
+
+<button id="top" type="button" aria-label="رفتن به بالا">↑</button>
+
+<dialog id="dlg" aria-label="جزئیات"><div class="sheet" id="sheet"></div></dialog>
+
+<script>
+/* ===== داده‌های منو: [نام, توضیح, ایموجی, پیشنهاد؟] ===== */
+const MENU = [
+ {id:'hot',  t:'نوشیدنی گرم', s:'قهوه و گرم‌نوشیدنی', e:'☕', items:[
+  ['اسپرسو سینگل','یک شات اسپرسو غلیظ','🫘'],['اسپرسو دوبل','دو شات اسپرسو','🫘'],['آمریکانو','اسپرسو با آب داغ','☕'],['کاپوچینو','اسپرسو، شیر و فوم ابریشمی','☕'],['لاته','اسپرسو با شیر بخارداده','🥛'],
+  ['موکا','اسپرسو، شکلات و شیر','🍫'],['کارامل ماکیاتو','اسپرسو، شیر و سس کارامل','🍮'],['هات چاکلت','شکلات داغ و غلیظ','🍫'],['نسکافه','قهوه فوری گرم','☕'],['شیر کاکائو','شیر گرم با کاکائو','🥛'],['چای','چای داغ','🫖'],['شیر ساده','یک لیوان شیر','🥛']]},
+ {id:'ice',  t:'نوشیدنی سرد (بر پایه قهوه)', s:'خنک و انرژی‌بخش', e:'🧊', items:[
+  ['آیس لاته','اسپرسو، شیر و یخ','🧋'],['آیس کارامل ماکیاتو','اسپرسو، شیر، کارامل و یخ','🍮'],['آیس موکا','اسپرسو، شکلات، شیر و یخ','🍫'],['آیس آمریکانو','اسپرسو با آب سرد و یخ','🧊']]},
+ {id:'mock', t:'ماکتل‌ها', s:'خنک و رنگی', e:'🍹', items:[
+  ['لیموناد','لیمو تازه، شیرین و خنک','🍋'],['موهیتو','لیمو، نعنا و گاز','🍃'],['رد موهیتو','موهیتو با سیروپ قرمز','🍓'],['پینا کولادا','آناناس و نارگیل','🍍'],['مانگو','ماکتل انبه، خنک و شیرین','🥭'],['استرابری','ماکتل توت‌فرنگی','🍓'],['شیر موز','شیر و موز، خنک','🍌']]},
+ {id:'herb', t:'دمنوش‌ها', s:'آرامش‌بخش', e:'🫖', items:[
+  ['لیمو نعنا','دمنوش لیمو و نعنا','🍋'],['لیمو زنجبیل','دمنوش لیمو و زنجبیل','🫚'],['آویشن','دمنوش آویشن','🌿'],['هلو و رز','دمنوش هلو و گل رز','🍑'],['عناب','دمنوش میوه‌ی عناب','🌸']]},
+ {id:'shake',t:'شیک', s:'سرد و شیرین', e:'🥤', items:[
+  ['شیک موز','شیک سرد و خامه‌ای با موز','🍌'],['شیک موز و نوتلا','شیک سرد با موز و نوتلا','🍫'],['شیک توت‌فرنگی','شیک سرد با توت‌فرنگی','🍓'],['شیک بادام‌زمینی','شیک سرد با بادام‌زمینی','🥜'],['شیک نوتلا','شیک سرد و شکلاتی با نوتلا','🍫'],['شیک انبه','شیک سرد با انبه','🥭']]},
+ {id:'smooth',t:'اسموتی', s:'میوه‌ای و خنک', e:'🍓', items:[
+  ['اسموتی انبه','اسموتی خنک با انبه','🥭'],['اسموتی توت‌فرنگی','اسموتی خنک با توت‌فرنگی','🍓'],['اسموتی توت‌فرنگی و موز','اسموتی خنک با توت‌فرنگی و موز','🍌'],['اسموتی هلو و شلیل','اسموتی خنک با هلو و شلیل','🍑']]},
+ {id:'dess', t:'دسر و میان‌وعده', s:'شیرین و کنار قهوه', e:'🍰', items:[
+  ['چیزکیک سن‌سباستین','چیزکیک سوخته و کرمی','🍰'],['چیزکیک اورئو','چیزکیک با خرده بیسکویت اورئو','🍪'],['چیزکیک شکلاتی','چیزکیک با روکش شکلات','🍫'],['چیزکیک پسته','چیزکیک با پسته','🍰'],['چیزکیک شاتوت','چیزکیک با سس شاتوت','🫐'],
+  ['کیک سه‌شیر','کیک اسفنجی خیس‌شده در شیر','🍮'],['کیک خیس شکلاتی','کیک شکلاتی نرم و خیس','🎂'],['کرم بروله','کاستارد کرمی با روکش کارامل ترد','🍮'],['دونات','دونات گلاسه','🍩'],
+  ['کروسان ساده','کروسان کره‌ای تازه از فر','🥐'],['کروسان نوتلا','کروسان با مغز نوتلا','🥐'],['کروسان موز و نوتلا','کروسان با موز و نوتلا','🥐'],['کروسان پسته','کروسان با پسته','🥐'],['کروسان بادام','کروسان با بادام','🥐'],['کروسان بیسکویتی','کروسان با روکش بیسکویت','🥐'],
+  ['رول دارچین','رول نرم با دارچین','🌀'],['رول نیویورکی','رول نرم به سبک نیویورک','🌀'],['سیمیت پنیر و گردو','سیمیت با پنیر و گردو','🥯'],['سیمیت موز و نوتلا','سیمیت با موز و نوتلا','🥯'],
+  ['دنیش میوه','بشقاب میوه‌ی تازه','🍇'],['نان سیر','نان داغ با سیر','🧄'],['لقمه پیتزایی','لقمه نان با طعم پیتزا','🍕'],['لقمه پنیری','لقمه نان با پنیر','🧀']]},
+ {id:'fast', t:'فست فود', s:'سیر و خوشمزه', e:'🍕', items:[
+  ['پیتزا پپرونی','یک‌نفره و دونفره','🍕'],['برگر','نان برگر، گوشت، پنیر و کاهو','🍔'],['دوبل برگر','دو لایه گوشت با پنیر و کاهو','🍔'],
+  ['سالاد سزار','سالاد سزار با سس مخصوص','🥗'],['سیب‌زمینی ساده','سیب‌زمینی سرخ‌کرده','🍟'],['سیب‌زمینی ویژه','سیب‌زمینی سرخ‌کرده با تاپینگ ویژه','🍟']]},
+ {id:'pasta',t:'پاستا‌ها', s:'ایتالیایی و گرم', e:'🍝', items:[
+  ['پاستا آلفردو','پاستا با سس خامه‌ای آلفردو','🍝'],['پاستا پستو','پاستا با سس پستو ریحان','🍝']]},
+ {id:'bread',t:'نان‌ها', s:'تازه‌پز', e:'🍞', items:[
+  ['نان سیمیت ترکی','تهیه‌شده با شیره انگور','🥯'],['نان پروتئینی','نان رژیمی','🍞'],['نان جو','تهیه‌شده با آرد جو سبوس‌دار','🌾'],
+  ['نان امگا ۳','تهیه‌شده با آرد سفید و مکمل امگا ۳','🍞'],['نان چندغله','تهیه‌شده با آرد جو، گندم، سبوس و دانه‌های رژیمی','🌾'],
+  ['نان چاپاتا','نان نرم ایتالیایی','🥖'],['نان بریوش','تهیه‌شده با کره حیوانی و عسل','🍯'],
+  ['نان تست ساده','تهیه‌شده با آرد سفید','🍞'],['نان باگت','نان بلند و ترد','🥖'],['نان باگت اورجینال','فرانسوی، تهیه‌شده با خمیرترش','🥖'],
+  ['نان گاتا','تهیه‌شده با خمیر لایه‌ای، گردو و دارچین','🥮']]}
+];
+
+const $ = s => document.querySelector(s);
+const catsEl = $('#cats'), menuEl = $('#menu'), dlg = $('#dlg'), q = $('#q');
+const norm = s => s.replace(/ي/g,'ی').replace(/ك/g,'ک').toLowerCase();
+let cur = MENU[0].id;
+
+/* ===== تصویرسازی آیتم‌ها (SVG) — اگه عکس واقعی بذارید جایگزین می‌شه ===== */
+const S = b => `<svg viewBox="0 0 120 120">${b}</svg>`;
+const SH = '<ellipse cx="60" cy="104" rx="42" ry="6" fill="#000" opacity=".2"/>';
+const ART = {
+ mug:(a,b,c)=>S(`<path d="M44 38c-4-5 4-7 0-13M58 38c-4-5 4-7 0-13M72 38c-4-5 4-7 0-13" stroke="#fff" stroke-opacity=".55" stroke-width="3" stroke-linecap="round" fill="none"/>${SH}<path d="M88 58h5a11 11 0 0 1 0 22h-9" stroke="#fff8ee" stroke-width="6" fill="none"/><path d="M28 50h64v26a28 28 0 0 1-28 28h-8a28 28 0 0 1-28-28z" fill="#fff8ee"/><ellipse cx="60" cy="50" rx="32" ry="7" fill="${a}"/>${b?`<ellipse cx="60" cy="50" rx="22" ry="4.5" fill="${b}"/>`:''}${c?`<circle cx="92" cy="44" r="10" fill="${c}" stroke="#fff" stroke-width="2"/>`:''}`),
+ glass:(a,b,c)=>S(`${SH}<path d="M62 8L54 60" stroke="${c}" stroke-width="5" stroke-linecap="round"/><path d="M34 26h52l-7 76a6 6 0 0 1-6 5H47a6 6 0 0 1-6-5z" fill="#fff" fill-opacity=".18"/><path d="M36 40h48l-4.500 62h-39z" fill="${a}"/><path d="M35 28h50l-1 18H36z" fill="${b}"/><rect x="46" y="62" width="14" height="14" rx="4" fill="#fff" opacity=".35" transform="rotate(12 53 69)"/><rect x="62" y="78" width="13" height="13" rx="4" fill="#fff" opacity=".3"/><path d="M34 26h52l-7 76a6 6 0 0 1-6 5H47a6 6 0 0 1-6-5z" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="2.500"/>`),
+ cake:(a,b,c)=>S(`${SH}<rect x="22" y="80" width="76" height="18" rx="6" fill="${c}"/><rect x="22" y="46" width="76" height="38" rx="6" fill="${a}"/><path d="M22 52a6 6 0 0 1 6-6h64a6 6 0 0 1 6 6v7c-7 9-11-1-19 6-8-7-11 5-20 0-8-6-12 6-20 0-7-6-10 4-17-2z" fill="${b}"/><circle cx="44" cy="40" r="7" fill="${b}"/><circle cx="62" cy="37" r="7" fill="${b}"/><circle cx="79" cy="40" r="7" fill="${b}"/>`),
+ croissant:(a,b,c)=>S(`${SH}<path d="M12 80c2-32 22-52 48-52s46 20 48 52c-8 6-16 0-22-8 0 12-10 20-26 20s-26-8-26-20c-6 8-14 14-22 8z" fill="${a}"/><path d="M42 38c5 12 5 24 0 36M60 32v44M78 38c-5 12-5 24 0 36" stroke="${b}" stroke-width="4" stroke-linecap="round" fill="none"/>${c?`<path d="M30 48q30-16 60 0" stroke="${c}" stroke-width="5" stroke-linecap="round" fill="none"/>`:''}`),
+ roll:(a,b,c)=>S(`${SH}<ellipse cx="60" cy="64" rx="42" ry="34" fill="${a}"/><circle cx="60" cy="62" r="10" fill="none" stroke="${b}" stroke-width="5"/><circle cx="60" cy="62" r="22" fill="none" stroke="${b}" stroke-width="5" stroke-dasharray="40 10"/><circle cx="60" cy="62" r="33" fill="none" stroke="${b}" stroke-width="5" stroke-dasharray="60 14"/>${c?`<path d="M28 54q32-26 64 0-8 14-20 8-12 12-24 2-12 8-20-10z" fill="${c}" opacity=".85"/>`:''}`),
+ bread:(a,b,c)=>S(`${SH}<path d="M16 72c0-26 20-40 44-40s44 14 44 40v22H16z" fill="${a}"/><path d="M40 44l-8 22M60 40l-8 24M80 44l-8 22" stroke="${b}" stroke-width="4" stroke-linecap="round"/>${c?[[34,82],[48,86],[62,82],[76,86],[90,82],[56,74]].map(d=>`<circle cx="${d[0]}" cy="${d[1]}" r="2.500" fill="${c}"/>`).join(''):''}`),
+ slice:(a,b)=>S(`${SH}<path d="M28 44c-12-16 6-26 20-20 8-5 16-5 24 0 14-6 32 4 20 20v50H28z" fill="${b}"/><path transform="translate(60 66) scale(.84) translate(-60 -66)" d="M28 44c-12-16 6-26 20-20 8-5 16-5 24 0 14-6 32 4 20 20v50H28z" fill="${a}"/>`),
+ baguette:(a,b)=>S(`${SH}<g transform="rotate(-28 60 60)"><rect x="6" y="44" width="108" height="32" rx="16" fill="${a}"/><path d="M30 48l-6 24M50 48l-6 24M70 48l-6 24M90 48l-6 24" stroke="${b}" stroke-width="4" stroke-linecap="round"/></g>`),
+ ring:(a,b)=>S(`${SH}<circle cx="60" cy="62" r="30" fill="none" stroke="${a}" stroke-width="22"/><circle cx="60" cy="62" r="30" fill="none" stroke="${b}" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 7"/>`),
+ burger:d=>S(`${SH}<path d="M22 52a38 30 0 0 1 76 0z" fill="#d98a3d"/><ellipse cx="46" cy="36" rx="3" ry="1.500" fill="#fff3d6"/><ellipse cx="60" cy="30" rx="3" ry="1.500" fill="#fff3d6"/><ellipse cx="74" cy="36" rx="3" ry="1.500" fill="#fff3d6"/><path d="M18 56q6 7 12 0t12 0t12 0t12 0t12 0t12 0v6H18z" fill="#7cb342"/><path d="M22 60h76l-12 12-12-12-12 12-12-12-12 12z" fill="#ffc83d"/><rect x="22" y="66" width="76" height="13" rx="6" fill="#5b3216"/>${d?'<rect x="22" y="80" width="76" height="13" rx="6" fill="#5b3216"/>':''}<rect x="24" y="${d?94:80}" width="72" height="13" rx="6" fill="#d98a3d"/>`),
+ pizza:()=>S(`${SH}<circle cx="60" cy="60" r="46" fill="#e3a24a"/><circle cx="60" cy="60" r="38" fill="#d6402c"/><circle cx="60" cy="60" r="35" fill="#f7cc62"/>${[[46,44],[70,46],[58,62],[38,66],[78,70],[56,84]].map(d=>`<circle cx="${d[0]}" cy="${d[1]}" r="7" fill="#b02a2a"/>`).join('')}`),
+ pasta:(a,b)=>S(`${SH}<path d="M26 64c2-22 18-34 34-34s32 12 34 34z" fill="${a}"/><path d="M34 58c8-14 20-18 32-14s18 10 20 14M42 50c10-8 26-8 36 0" stroke="${b}" stroke-width="4" stroke-linecap="round" fill="none"/><circle cx="52" cy="40" r="3" fill="#43a047"/><circle cx="72" cy="46" r="3" fill="#43a047"/><path d="M16 64h88a44 36 0 0 1-88 0z" fill="#fff8ee"/>`),
+ fries:()=>S(`${SH}${[[38,-16],[48,-8],[58,0],[68,8],[78,16]].map(d=>`<rect x="${d[0]}" y="18" width="9" height="50" rx="2" fill="#f5c542" transform="rotate(${d[1]} ${d[0]+4} 64)"/>`).join('')}<path d="M32 58h56l-6 42H38z" fill="#d93f3a"/><path d="M44 58l3 42M60 58v42M76 58l-3 42" stroke="#fff" stroke-opacity=".35" stroke-width="5"/>`),
+ salad:()=>S(`${SH}<circle cx="40" cy="50" r="14" fill="#66bb6a"/><circle cx="62" cy="44" r="16" fill="#7cb342"/><circle cx="82" cy="52" r="13" fill="#558b2f"/><circle cx="52" cy="56" r="12" fill="#9ccc65"/><circle cx="74" cy="44" r="6" fill="#e53935"/><rect x="40" y="38" width="9" height="9" rx="2" fill="#e8b866" transform="rotate(20 44 42)"/><path d="M16 60h88a44 38 0 0 1-88 0z" fill="#fff8ee"/>`),
+ donut:a=>S(`${SH}<path fill-rule="evenodd" d="M60 22a38 38 0 1 0 0 76a38 38 0 1 0 0-76zm0 28a10 10 0 1 1 0 20a10 10 0 1 1 0-20z" fill="#e0a46a"/><path fill-rule="evenodd" d="M60 26a34 34 0 1 0 0 68a34 34 0 1 0 0-68zm0 24a10 10 0 1 1 0 20a10 10 0 1 1 0-20z" fill="${a}"/>${[[44,40,-30,'#fff'],[74,38,40,'#ffd54f'],[82,64,10,'#4fc3f7'],[46,78,70,'#fff'],[66,84,-20,'#ffd54f'],[36,58,90,'#4fc3f7']].map(d=>`<rect x="${d[0]-4}" y="${d[1]-1.500}" width="8" height="3" rx="1.500" fill="${d[3]}" transform="rotate(${d[2]} ${d[0]} ${d[1]})"/>`).join('')}`),
+ fruit:()=>S(`${SH}<circle cx="46" cy="50" r="15" fill="#fb8c00"/><circle cx="72" cy="48" r="13" fill="#e53935"/><circle cx="58" cy="38" r="12" fill="#8bc34a"/><circle cx="58" cy="38" r="5" fill="#dce775"/><circle cx="88" cy="56" r="7" fill="#7b1fa2"/><circle cx="80" cy="64" r="7" fill="#8e24aa"/><path d="M16 64h88a44 36 0 0 1-88 0z" fill="#fff8ee"/>`),
+ brulee:()=>S(`${SH}<path d="M24 66h72v14a22 22 0 0 1-22 22H46a22 22 0 0 1-22-22z" fill="#fff8ee"/><ellipse cx="60" cy="66" rx="36" ry="10" fill="#f6dc8a"/><ellipse cx="60" cy="65" rx="32" ry="8" fill="#b8681c"/><ellipse cx="50" cy="63" rx="10" ry="2" fill="#f0b25a" opacity=".7"/>`)
+};
+const RULES = [
+ ['^آیس لاته','glass','#c99a6b','#f2e6d6','#8a5a3c'],['^آیس کارامل','glass','#c98a3c','#f2e6d6','#8a5a3c'],['^آیس موکا','glass','#5a3220','#f2e6d6','#8a5a3c'],['^آیس آمریکانو','glass','#3a1d0e','#6b3d22','#fff'],
+ ['اسپرسو','mug','#3a1d0e','#c68642'],['آمریکانو','mug','#4a2a14'],['کاپوچینو','mug','#8b5a3c','#f4e4cc'],['^لاته','mug','#c89b73','#f6ede0'],['^موکا','mug','#5a3220','#fff1dc'],
+ ['کارامل ماکیاتو','mug','#c98a3c','#f6e3b8'],['هات چاکلت','mug','#4b2a1c','#f4e1d0'],['نسکافه','mug','#6b3d22','#e8d2b5'],['شیر کاکائو','mug','#7a4a30'],['^چای','mug','#b5651d'],['^شیر ساده','mug','#efe6d8'],
+ ['^لیموناد','glass','#f5e663','#fff7a8','#7cb342'],['^موهیتو','glass','#cfe9a8','#e9f5cf','#4caf50'],['^رد موهیتو','glass','#c2263f','#e64a6a','#7cb342'],['پینا','glass','#fff3c4','#ffffff','#ff9ec2'],
+ ['^مانگو','glass','#ffb300','#ffd54f','#ff7043'],['^استرابری','glass','#e53958','#ff8aa0','#ffffff'],['^شیر موز','glass','#f8e6a0','#fff6d0','#fbc02d'],
+ ['لیمو نعنا','mug','#dfe39a',null,'#8bc34a'],['لیمو زنجبیل','mug','#f0c96a',null,'#f5e663'],['آویشن','mug','#c9d48a',null,'#6a9a3a'],['هلو و رز','mug','#ffb48a',null,'#e86a8a'],['عناب','mug','#b5413a',null,'#d9a66b'],
+ ['^شیک موز و نوتلا','glass','#7a4a30','#f8e6a0','#fff'],['^شیک موز','glass','#f8e6a0','#fff6d0','#fbc02d'],['^شیک توت','glass','#f27a93','#ffd0da','#fff'],['^شیک بادام','glass','#c8996a','#f2dcc0','#fff'],
+ ['^شیک نوتلا','glass','#5a3220','#e7c9a6','#fff'],['^شیک انبه','glass','#ffb300','#ffd54f','#fff'],
+ ['^اسموتی انبه','glass','#ff9800','#ffc107','#7cb342'],['^اسموتی توت.فرنگی و موز','glass','#f4a6b8','#ffe082','#7cb342'],['^اسموتی توت','glass','#e0406a','#f48fb1','#7cb342'],['^اسموتی هلو','glass','#ffab76','#ffd2b0','#7cb342'],
+ ['سباستین','cake','#e9c07a','#6b3a1e','#d9a35c'],['چیزکیک اورئو','cake','#f3ead9','#3b2a2a','#2b2b2b'],['چیزکیک شکلاتی','cake','#6b4030','#3b1f12','#4a2a1c'],['چیزکیک پسته','cake','#d9e6b0','#7ba05b','#e6c58a'],
+ ['چیزکیک شاتوت','cake','#f3e4f0','#8a2e6a','#d9a35c'],['سه.شیر','cake','#f7ecd3','#fff7e6','#e6c58a'],['کیک خیس','cake','#4b2a1c','#2e170d','#3a2014'],
+ ['دونات','donut','#f06292'],['بروله','brulee'],
+ ['^کروسان ساده','croissant','#e0a24c','#b87424'],['^کروسان موز','croissant','#e0a24c','#b87424','#4a2a1c'],['^کروسان نوتلا','croissant','#e0a24c','#b87424','#4a2a1c'],['^کروسان پسته','croissant','#e0a24c','#b87424','#8bc34a'],
+ ['^کروسان بادام','croissant','#e0a24c','#b87424','#f3e2c0'],['^کروسان بیسکویتی','croissant','#e0a24c','#b87424','#c68642'],
+ ['رول دارچین','roll','#e0a24c','#8b4a1e','#f6ede0'],['رول نیویورکی','roll','#e0a24c','#b87424'],['سیمیت پنیر','ring','#d99b4a','#fff3d6'],['سیمیت موز','ring','#d99b4a','#4a2a1c'],['نان سیمیت','ring','#d99b4a','#fff3d6'],
+ ['دنیش','fruit'],['نان سیر','baguette','#e9b25b','#4caf50'],['لقمه پیتزایی','pizza'],['لقمه پنیری','roll','#e9b25b','#f6dc8a'],
+ ['^پیتزا','pizza'],['^دوبل برگر','burger',1],['^برگر','burger'],['سزار','salad'],['سیب.زمینی','fries'],['آلفردو','pasta','#f3e2b3','#e6cf8c'],['پستو','pasta','#8fb85a','#5d8a35'],
+ ['نان پروتئینی','bread','#b57b3f','#8a5a24','#f1d9a0'],['نان جو','bread','#a8743a','#7a4f22','#f1d9a0'],['امگا','bread','#caa06a','#9a6a35','#f1d9a0'],['چندغله','bread','#9a6a35','#6b4421','#f1d9a0'],
+ ['چاپاتا','bread','#e7bd7a','#c98a3c'],['بریوش','bread','#e9a94d','#c9792f'],['تست','slice','#fbe8c0','#c98a3c'],['باگت اورجینال','baguette','#d9a35c','#8a5a24'],['باگت','baguette','#e5b565','#a87530'],['گاتا','roll','#e8b25c','#a8641e']
+];
+const art = i => { const r = RULES.find(r => new RegExp(r[0]).test(i[0])); return r ? ART[r[1]](...r.slice(2)) : i[2]; };
+
+/* عکس هر آیتم: images/{id دسته}-{شماره}.jpg (مثلا images/hot-1.jpg) */
+const pic = (i,c,n) => `<div class="pic">${i[3]?'<span class="star">⭐ پیشنهاد</span>':''}<span class="em" aria-hidden="true">${art(i)}</span><img src="images/${c.id}-${n+1}.jpg" alt="${i[0]}" loading="lazy" onerror="this.remove()"></div>`;
+
+menuEl.innerHTML = MENU.map(c => `<section class="panel" id="p-${c.id}">
+  <div class="sec-head"><div class="big">${c.e}</div><div><h2>${c.t}</h2><small>${c.s}</small></div><div class="line"></div><span class="cnt">${c.items.length.toLocaleString('fa-IR')} مورد</span></div>
+  <div class="row g-3">${c.items.map((i,n) => `<div class="col-12 col-sm-6 col-md-4 col-lg-3 cell" data-q="${norm(i[0]+' '+i[1])}">
+    <button class="item" data-c="${c.id}" data-n="${n}">${pic(i,c,n)}<span class="body"><b>${i[0]}</b><span>${i[1]}</span></span></button></div>`).join('')}</div>
+</section>`).join('') + '<div class="empty" id="none" hidden>چیزی پیدا نشد 🫥 یه اسم دیگه امتحان کن</div>';
+
+[{id:'all',t:'همه آیتم‌ها',e:'✨'}, ...MENU].forEach(c => {
+  const b = document.createElement('button');
+  b.className = 'cat-btn'; b.dataset.id = c.id;
+  b.innerHTML = `<span>${c.e}</span>${c.t}`;
+  b.onclick = () => show(c.id, true);
+  catsEl.appendChild(b);
+});
+
+function show(id, scroll){
+  cur = id; q.value = '';
+  document.querySelectorAll('.cell').forEach(x => x.hidden = false);
+  $('#none').hidden = true;
+  document.querySelectorAll('.cat-btn').forEach(b => {
+    const on = b.dataset.id === id; b.classList.toggle('active', on); b.setAttribute('aria-pressed', on);
+    if(on) b.scrollIntoView({inline:'center', block:'nearest', behavior:'smooth'});
+  });
+  document.querySelectorAll('.panel').forEach(p => p.classList.toggle('show', id === 'all' || p.id === 'p-' + id));
+  if(scroll) window.scrollTo({top: $('.hero').offsetHeight - 50, behavior:'smooth'});
+  try{ history.replaceState(null,'','#'+id) }catch(e){}
+}
+
+q.addEventListener('input', () => {
+  const v = norm(q.value.trim());
+  if(!v){ show(cur); return; }
+  document.querySelectorAll('.cat-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', false); });
+  let total = 0;
+  document.querySelectorAll('.panel').forEach(p => {
+    let hit = 0;
+    p.querySelectorAll('.cell').forEach(x => { const m = x.dataset.q.includes(v); x.hidden = !m; if(m) hit++; });
+    p.classList.toggle('show', hit > 0); total += hit;
+  });
+  $('#none').hidden = total > 0;
+});
+
+menuEl.addEventListener('click', e => {
+  const b = e.target.closest('.item'); if(!b) return;
+  const c = MENU.find(x => x.id === b.dataset.c), n = +b.dataset.n, i = c.items[n];
+  $('#sheet').innerHTML = `<button class="x" aria-label="بستن" onclick="dlg.close()">✕</button>${pic(i,c,n)}<div class="txt"><small>${c.t}</small><h3>${i[0]}</h3><p>${i[1]}</p></div>`;
+  dlg.showModal();
+});
+dlg.addEventListener('click', e => { if(e.target === dlg) dlg.close(); });
+
+const modeBtn = $('#mode'), meta = $('meta[name=theme-color]');
+function setTheme(t){
+  document.documentElement.dataset.theme = t;
+  modeBtn.textContent = t === 'light' ? '🌙' : '☀️';
+  modeBtn.setAttribute('aria-label', t === 'light' ? 'حالت شب' : 'حالت روز');
+  meta.content = t === 'light' ? '#fff6e6' : '#150a2e';
+  try{ localStorage.setItem('theme', t) }catch(e){}
+}
+modeBtn.onclick = () => setTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light');
+setTheme(document.documentElement.dataset.theme === 'light' ? 'light' : 'dark');
+
+const topBtn = $('#top');
+topBtn.onclick = () => window.scrollTo({top:0, behavior:'smooth'});
+addEventListener('scroll', () => topBtn.classList.toggle('on', scrollY > 600), {passive:true});
+
+const start = location.hash.slice(1);
+show(MENU.some(c => c.id === start) || start === 'all' ? start : MENU[0].id, false);
+</script>
+</body>
+</html>
